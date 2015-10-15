@@ -10,7 +10,7 @@ require './models'
 
 get '/' do
 	@title = 'Home'
-	erb :home
+	erb :home, :layout => :home_layout
 end
 post '/login' do
 	@title = 'Login'
@@ -24,7 +24,7 @@ get '/login_success' do
 end
 get '/failed' do
 	@title = 'Login / Signup Failed'
-	erb :fail
+	erb :fail, :layout => :home_layout
 end
 get '/profile' do
 	@title = 'Your Profile'
