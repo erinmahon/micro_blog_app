@@ -63,6 +63,6 @@ get '/profile' do
 	erb :profile
 end
 get '/logout' do
-	sessions.clear
+	session.clear
 	erb :logout, :layout => :home_layout
 end
