@@ -5,7 +5,16 @@
 	<div id="login">
 		<h3>Log In</h3>
 		<h6>Welcome back!</h6>
-		<form>
+		<form method="POST" action="/login">
+			<label for="user_name">Username</label>
+			<input type="text" name="user_name">
+			<br>
+			<label for="password">Password</label>
+			<input type="password" name="password">
+			<br>
+			<input class="button" type="submit" value="Log In">
+			<br>
+			<img id="people_chatting" src="./images/people_chatting.png" width="250px">
 		</form>
 	</div>
 	<div class="clear"></div>
