@@ -37,16 +37,7 @@ body {
 	margin-top: 10px;
 	padding-bottom: 5px;
 }
-button	{
-	background-color: #fd614e;
-	border-color: #fd614e;
-	color: #ffffff;
-	font-weight: bold;
-	font-size: 20px;
-	padding: 5px 10px;
-	float: right;
-	box-shadow: 4px;
-}
+
 footer {
 	height: 40px;
 	width: 900px;
@@ -97,4 +88,19 @@ a#navbar:hover {
 	text-decoration: none;
 }
 a#navbar:active {
+}
+.button {
+	background-color: #fd614e;
+	border: #fd614e;
+	font-size: 18px;
+	color: #ffffff;
+	padding: 5px 10px;
+	margin-top: 30px;
+	box-shadow: 2px 2px 2px #888888;
+}
+.button:hover{
+	background-color: #82b4bc;
+}
+#people_chatting {
+	
 }
