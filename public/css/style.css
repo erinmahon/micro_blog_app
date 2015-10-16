@@ -1,0 +1,71 @@
+body {
+	font-family: helvetica;
+	background-color: #62514f;
+}
+#wrapper {
+	width: 900px;
+	margin: 0 auto;
+	background-color: #dfe6e9;
+	padding-top: 20px;
+}
+#banner {
+	width: 900px;
+	margin: 0 auto;
+	height: 100px;
+	background-color: #82b4bc;
+}
+#signup, #login {
+	height: 500px;
+	width: 40%;
+	background-color: #f5f0e1;
+	border: 3px solid black;
+	float: left;
+	margin: 0px 40px 40px 40px;
+	box-shadow: 10px 10px 5px #888888;
+}
+#signup h3, #login h3{
+	text-align: center;
+	font-size: 28px;
+}
+#signup h6, #login h6 {
+	text-align: center;
+	font-size: 16px;
+	font-style: italic;
+}
+.message {
+	text-align: center;
+	margin-top: 10px;
+	padding-bottom: 5px;
+}
+button	{
+	background-color: #fd614e;
+	border-color: #fd614e;
+	color: #ffffff;
+	font-weight: bold;
+	font-size: 20px;
+	padding: 5px 10px;
+	float: right;
+	box-shadow: 4px;
+}
+footer {
+	height: 40px;
+	width: 900px;
+	margin: 0 auto;
+	background-color: #ffffff;
+	text-align: center;
+	padding-top: 20px;
+	font-size: 14px;
+}
+.clear {
+	clear: both;
+}
+form {
+	text-align: center;
+}
+#logo {
+	padding: 12px 0px 0px 12px;
+}
+#blue_bold {
+	font-weight: bold;
+	color: #82b4bc;
+}
