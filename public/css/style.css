@@ -29,7 +29,7 @@ body {
 }
 #signup h6, #login h6 {
 	text-align: center;
-	font-size: 16px;
+	font-size: 18px;
 	font-style: italic;
 }
 .message {
@@ -95,12 +95,26 @@ a#navbar:active {
 	font-size: 18px;
 	color: #ffffff;
 	padding: 5px 10px;
-	margin-top: 30px;
+	margin-top: 20px;
 	box-shadow: 2px 2px 2px #888888;
 }
-.button:hover{
+.button:hover {
 	background-color: #82b4bc;
 }
 #people_chatting {
-	
+	margin-top: 6px;	
+}
+#connect {
+	padding: 0px 20px 10px 20px;
+	font-size: 14px;
+	font-style: italic;
+	text-align: center;
+	color: #ffffff;
+	background-color: #fd614e;
+	opacity: 0.75;
+	padding-top: 10px;
+	margin: 0px 4px 37px 4px;
+}
+.white_bold {
+	font-weight: bold;
 }
