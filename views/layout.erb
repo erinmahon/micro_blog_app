@@ -1,1 +1,41 @@
-<%= yield %>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title><%= @title %></title>
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+
+<body>
+	<header>
+		<div id="banner">
+			<img id="logo" src="./images/chatter_logo.png">
+			<nav>
+				<%
+					nav = ["Profile", "Newsfeed", "Log Out"]
+					pages = ["profile", "login_success", "logout"] 
+				%>
+				<ul>
+					<!-- start outputting nav elements as list items -->	
+					<% nav.each_with_index do |page, index| %>
+						<li>
+							<a id="navbar" href="/<%= pages[index] %>">
+								<%= page %>
+							</a>	
+						</li>
+					<% end %>
+				</ul>
+			</nav>
+					<!-- end outputting nav elements as list items -->
+		</div>
+	</header>
+	<div id="wrapper">	
+		<%= yield %>
+	</div>
+	<footer>
+		&#169; 2015 <span id="blue_bold">Chatter</span> - All rights reserved.
+	</footer>
+
+</body>
+</html>

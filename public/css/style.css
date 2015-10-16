@@ -73,3 +73,28 @@ form {
 	padding-top: 120px;
 	padding-left: 5px;
 }
+nav {
+	float: right;
+	padding-top: 60px;
+	padding-right: 10px;
+	text-transform: uppercase;
+	font-size: 14px;
+}
+ul {
+	list-style-type: none; 
+	padding-left: 0;
+}
+li {
+	display:inline-block;
+	padding-right: 10px;
+}
+a#navbar:link, a#navbar:visited {
+	color: white;
+	text-decoration: none;
+}
+a#navbar:hover {
+	color: #fd614e;
+	text-decoration: none;
+}
+a#navbar:active {
+}
