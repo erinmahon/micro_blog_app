@@ -31,7 +31,7 @@ get '/profile' do
 	erb :profile
 end
 get '/logout' do
-	erb :logout
+	erb :logout, :layout => :home_layout
 end
 
 
