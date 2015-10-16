@@ -118,3 +118,31 @@ a#navbar:active {
 .white_bold {
 	font-weight: bold;
 }
+#profile_placeholder {
+	padding: 0px 0px 20px 20px;
+	float: left;
+}
+.profile_info {
+	float: left;
+	padding: 75px 0px 0px 20px;
+}
+.profile_fact {
+
+}
+#following_list {
+	background-color: darkgray;
+	width: 30%;
+	height: 300px;
+	margin: 0px 0px 0px 20px;
+}
+.profile_title {
+	float: left;
+	text-transform: uppercase;
+}
+#following_title {
+	margin-left: 20px;
+	padding: 0px 80px;
+}
+#recent_posts_title {
+	margin-left: 30px;
+}
