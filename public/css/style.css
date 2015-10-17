@@ -131,18 +131,47 @@ a#navbar:active {
 }
 #following_list {
 	background-color: darkgray;
-	width: 30%;
+	width: 31%;
 	height: 300px;
-	margin: 0px 0px 0px 20px;
+	margin: 0px 0px 20px 21px;
+	float: left;
+}
+#recent_chatter {
+	background-color: darkgray;
+	width: 62%;
+	height: 300px;
+	margin: 0px 0px 20px 22px;
+	float: left;
 }
 .profile_title {
 	float: left;
 	text-transform: uppercase;
+	font-size: 20px;
+	color: #ffffff;
+	background-color: #fd614e;
+	opacity: 0.75;
+	box-shadow: 2px 2px 2px #888888;
 }
 #following_title {
 	margin-left: 20px;
 	padding: 0px 80px;
 }
 #recent_posts_title {
-	margin-left: 30px;
+	margin-left: 20px;
+	padding: 0px 186px;
 }
+#post_form {
+	float: left;
+	margin: 27px 0px 0px 80px;
+}
+#post_label {
+	font-size: 18px;
+	color: #ffffff;
+	background-color: #fd614e;
+	opacity: 0.75;
+}
+#bubbles {
+	float: left;
+	margin-left: 150px;
+}
+
