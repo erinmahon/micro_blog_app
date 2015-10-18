@@ -16,14 +16,19 @@ post '/login' do
 	@title = 'Login'
 	@user = User.where(user_name: params[:user_name]).first
 
-	if @user.user_password == params[:password]
-		flash[:notice] = 'Congratulations!'
-		session[:session_user_id] = @user.id
-		session[:session_user_name] = @user.user_name
-		redirect '/login_success'
-	else
+	if @user.nil?
 		flash[:alert] = 'Bad News!'
 		redirect '/failed'
+	else
+		if @user.user_password == params[:password]
+			flash[:notice] = 'Congratulations!'
+			session[:session_user_id] = @user.id
+			session[:session_user_name] = @user.user_name
+			redirect '/login_success'
+		else
+			flash[:alert] = 'Bad News!'
+			redirect '/failed'
+		end
 	end
 end
 post '/signup' do
@@ -65,4 +70,16 @@ end
 get '/logout' do
 	session.clear
 	erb :logout, :layout => :home_layout
+end
+
+get '/users' do
+	@title = 'Users'
+	@users = User.all
+	erb :users
+end
+
+get '/:user_name' do
+	@user = User.find_by(user_name: params[:user_name])
+	@profile = Profile.find_by(user_id:@user.id)
+	erb :user
 end

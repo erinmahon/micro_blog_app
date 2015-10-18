@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
 	has_one :profile
 	has_many :posts
 	has_many :comments
-	has_many :followers, through: :userfollowers
+	has_many :followers, through: :users_followers
 end
 class Profile < ActiveRecord::Base
 	belongs_to :user
@@ -18,9 +18,9 @@ class Comment < ActiveRecord::Base
 	has_many :comments
 end
 class Follower < User
-	has_many :users, through: :userfollowers
+	has_many :users, through: :users_followers
 end
-class UserFollower < ActiveRecord:Base
+class User_Follower < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :follower
 end
