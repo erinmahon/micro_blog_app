@@ -174,4 +174,9 @@ a#navbar:active {
 	float: left;
 	margin-left: 150px;
 }
-
+.hide{
+	display: none;
+}
+.show{
+	display:block;
+}

@@ -94,8 +94,16 @@ end
 get '/:user_name' do
 	@title = params[:user_name]
 	@user = User.find_by(user_name: params[:user_name])
+	@followers = Follow.where(user_id: @user.id)
 	@profile = Profile.find_by(user_id: @user.id)
 	@posts = Post.where(user_id: @user.id)
+	@follow = false
+	@followers.each do |follower|
+		if follower.follower_id == session[:session_user_id]
+			@follow = true
+		end 
+	end
+
 	erb :user
 end
 post '/post' do
