@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151015185809) do
+ActiveRecord::Schema.define(version: 20151019140914) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20151015185809) do
     t.integer "parent_id"
     t.date    "date"
     t.time    "time"
-    t.string  "comment",   limit: 150
+    t.string  "message",   limit: 150
   end
 
   create_table "follows", force: :cascade do |t|

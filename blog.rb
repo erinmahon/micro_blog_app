@@ -61,10 +61,12 @@ get '/login_success' do
 end
 get '/failed' do
 	@title = 'Login / Signup Failed'
-	erb :fail, :layout => :home_layout
+	erb :home, :layout => :home_layout
 end
 get '/profile' do
 	@title = 'Your Profile'
+	@profile = Profile.find_by(user_id: session[:session_user_id])
+	@posts = Post.where(user_id: session[:session_user_id])
 	erb :profile
 end
 get '/logout' do
@@ -79,7 +81,8 @@ get '/users' do
 end
 
 get '/:user_name' do
+	@title = params[:user_name]
 	@user = User.find_by(user_name: params[:user_name])
-	@profile = Profile.find_by(user_id:@user.id)
+	@profile = Profile.find_by(user_id: @user.id)
 	erb :user
 end

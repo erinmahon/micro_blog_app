@@ -2,11 +2,11 @@
 
 	<img id="profile_placeholder" src="./images/profile_placeholder.jpg">
 	<div class="profile_info">
-		<h1 class="profile_name">Erin Mahon</h1>
+		<h1 class="profile_name"><%= @profile.first_name + " " + @profile.last_name %></h1>
 		<p class="profile_fact">Female</p>
 		<p class="profile_fact">Philadelphia, PA</p>
-		<p class="profile_fact">Student</p>
-		<p class="profile_fact">February 3, 1989</p>
+		<p class="profile_fact"><%= @profile.work %></p>
+		<p class="profile_fact"><%= @profile.birthday %></p>
 	</div>
 	<div id="new_post">
 		<img id="bubbles" src="./images/chatting_bubbles.png" width="150px">
@@ -28,7 +28,29 @@
 	</div>
 	<div class="clear"></div>
 	<div id="following_list">
+		<% followees = Follow.where(follower_id: session[:session_user_id]) %>
+		<% followees.each do |followee| %>
+			<p><a href="/<%= User.find(followee.user_id).user_name %>"><%= User.find(followee.user_id).user_name %></a></p>
+		<% end %>
+
 	</div>
 	<div id="recent_chatter">
+
+		<% @posts = @posts.reverse 
+			@posts.each do |post| %>
+				<h3>Post</h3>
+				<p><%= post.message %></p>
+				<p><%= post.date %></p>
+				<p><%= post.time %></p>
+
+				<% comments = Comment.where(post_id: post.id)
+			   comments.each do |item| %>
+			  		<h3>Comment</h3>
+			   	<p><%= item.message %></p>
+					<p><%= User.find(item.user_id).user_name %></p>
+					<p><%= item.date %></p>
+					<p><%= item.time %></p>
+				<% end %>
+			<% end %>
 	</div>
 	<div class="clear"></div>
