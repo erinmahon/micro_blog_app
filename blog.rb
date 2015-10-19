@@ -26,7 +26,6 @@ post '/login' do
 			session[:session_user_name] = @user.user_name
 			redirect '/login_success'
 		else
-			flash[:alert] = 'Bad News!'
 			redirect '/failed'
 		end
 	end
@@ -62,6 +61,7 @@ get '/login_success' do
 end
 get '/failed' do
 	@title = 'Login / Signup Failed'
+	flash[:alert] = 'Bad News!'
 	erb :home, :layout => :home_layout
 end
 get '/profile' do
@@ -103,8 +103,15 @@ get '/:user_name' do
 			@follow = true
 		end 
 	end
-
 	erb :user
+end
+post '/follow' do
+	if params[:follow] == 'true'
+		Follow.create(user_id: params[:followee], follower_id: session[:session_user_id])
+	else
+		Follow.where(user_id: params[:followee], follower_id: session[:session_user_id]).destroy_all
+	end
+	redirect back
 end
 post '/post' do
 	@title = 'Your Profile'

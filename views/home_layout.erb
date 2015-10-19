@@ -5,8 +5,6 @@
 	<meta charset="utf-8">
 	<title><%= @title %></title>
 	<link rel="stylesheet" type="text/css" href="./css/style.css">
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-	<script src="./js/javascript.js"></script>
 </head>
 
 <body>
@@ -23,6 +21,8 @@
 	<footer>
 		&#169; 2015 <span id="blue_bold">Chatter</span> - All rights reserved.
 	</footer>
-
+<% if flash[:alert] %>
+	<%= flash[:alert] %>
+<%end%>
 </body>
 </html>

@@ -1,11 +1,17 @@
 <img id="profile_placeholder" src="./images/profile_placeholder.jpg">
 
 <% if @follow == true %>
-	<button id="follow" class="hide">Follow</button>
-	<button id="unfollow" class="show">Unfollow</button>
+	<form method="post" action="/follow">
+		<input type="hidden" name="followee" value= <%= @user.id%> >
+		<input type="hidden" name="follow" value="false">
+		<input id="unfollow" type="submit" value="Unfollow">
+	</form>
 <% else %>
-	<button id="follow" class="show">Follow</button>
-	<button id="unfollow" class="hide">Unfollow</button>
+	<form method="post" action="/follow">
+		<input type="hidden" name="followee" value= <%= @user.id%> >
+		<input type="hidden" name="follow" value="true">
+		<input id="follow" type="submit" value="Follow">
+	</form>
 <% end %>
 
 	<div class="profile_info">
