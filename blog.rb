@@ -66,6 +66,7 @@ get '/failed' do
 end
 get '/profile' do
 	@title = 'Your Profile'
+	@user = User.find(session[:session_user_id])
 	@my_profile = Profile.find_by(user_id: session[:session_user_id])
 	@posts = Post.where(user_id: session[:session_user_id])
 	erb :profile

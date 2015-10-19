@@ -1,7 +1,13 @@
 	<img id="profile_placeholder" src="./images/profile_placeholder.jpg">
 	<a id="profile_placeholder" href="/edit">Edit Profile</a>
 	<div class="profile_info">
-		<h1 class="profile_name"><%= @my_profile.first_name + " " + @my_profile.last_name %></h1>
+		<h1 class="profile_name">
+			<% if @my_profile.first_name.nil? || @my_profile.last_name.nil? %>
+				<%= @user.user_name %>
+			<% else %>
+				<%= @my_profile.first_name + " " + @my_profile.last_name %>
+			<% end %>
+		</h1>
 		<p class="profile_fact">Female</p>
 		<p class="profile_fact">Philadelphia, PA</p>
 		<p class="profile_fact"><%= @my_profile.work %></p>
