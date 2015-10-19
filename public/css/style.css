@@ -189,4 +189,13 @@ a#navbar:active {
 #all_posts {
 	padding: 10px;
 }
+#users_page {
+	border: 5px solid #fd614e;
+	background-color: #ffffff;
+	width: 600px;
+	margin: 0 auto;
+	padding: 0px 10px 10px 10px;
+	box-shadow: 10px 10px 5px #888888;
+
+}
 
