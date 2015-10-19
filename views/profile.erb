@@ -1,6 +1,9 @@
 	<img id="profile_placeholder" src="./images/profile_placeholder.jpg">
-	<a id="profile_placeholder" href="/edit">Edit Profile</a>
 	<div class="profile_info">
+		<div id="edit">
+		<a href="/edit">Edit Profile</a>
+		</div>
+		<div class="clear"></div>
 		<h1 class="profile_name">
 			<% if @my_profile.first_name.nil? || @my_profile.last_name.nil? %>
 				<%= @user.user_name %>
