@@ -1,4 +1,13 @@
 <img id="profile_placeholder" src="./images/profile_placeholder.jpg">
+
+<% if @follow == true %>
+	<button id="follow" class="hide">Follow</button>
+	<button id="unfollow" class="show">Unfollow</button>
+<% else %>
+	<button id="follow" class="show">Follow</button>
+	<button id="unfollow" class="hide">Unfollow</button>
+<% end %>
+
 	<div class="profile_info">
 		<h1 class="profile_name">
 			<% if @profile.first_name.nil? || @profile.last_name.nil? %>

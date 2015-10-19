@@ -174,6 +174,12 @@ a#navbar:active {
 	float: left;
 	margin-left: 150px;
 }
+.hide{
+	display: none;
+}
+.show{
+	display:block;
+}
 #chatter_feed {
 	border: 5px solid #fd614e;
 	background-color: #ffffff;
@@ -196,6 +202,4 @@ a#navbar:active {
 	margin: 0 auto;
 	padding: 0px 10px 10px 10px;
 	box-shadow: 10px 10px 5px #888888;
-
 }
-
