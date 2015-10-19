@@ -174,9 +174,19 @@ a#navbar:active {
 	float: left;
 	margin-left: 150px;
 }
+<<<<<<< HEAD
 .hide{
 	display: none;
 }
 .show{
 	display:block;
 }
+=======
+#chatter_feed {
+	border: 2px solid black;
+	background-color: red;
+}
+#edit_info {
+	padding: 5px 0px 20px 0px;
+}
+>>>>>>> a9e107f04d8226cf5f0878e14843b512fb592205
