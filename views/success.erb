@@ -1,0 +1,24 @@
+<% all_posts = [] %>
+<%	@followees.each do |followee| 
+ 		followee_posts = Post.where(user_id: followee.user_id) 
+ 		followee_posts.each do |post|
+ 			all_posts.push(post)
+ 		end
+ 	end %>
+
+<% all_posts.each do |post| %>
+	<h3>Post</h3>
+ 	<p><%= post.message %></p>
+ 	<p><%= User.find(post.user_id).user_name %></p>
+ 	<p><%= post.date %></p>
+ 	<p><%= post.time %></p>
+
+ 	<% comments = Comment.where(post_id: post.id)
+	comments.each do |item| %>
+		<h3>Comment</h3>
+		<p><%= item.message %></p>
+		<p><%= User.find(item.user_id).user_name %></p>
+		<p><%= item.date %></p>
+		<p><%= item.time %></p>
+	<% end %>
+<% end %>

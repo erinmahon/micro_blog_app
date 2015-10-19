@@ -57,6 +57,7 @@ post '/signup' do
 end
 get '/login_success' do
 	@title = 'You are signed in!'
+	@followees = Follow.where(follower_id: session[:session_user_id])
 	erb :success
 end
 get '/failed' do
@@ -65,24 +66,39 @@ get '/failed' do
 end
 get '/profile' do
 	@title = 'Your Profile'
-	@profile = Profile.find_by(user_id: session[:session_user_id])
+	@my_profile = Profile.find_by(user_id: session[:session_user_id])
 	@posts = Post.where(user_id: session[:session_user_id])
 	erb :profile
+end
+get '/edit' do
+	@title = 'Edit Your Profile'
+	@my_profile = Profile.find_by(user_id: session[:session_user_id])
+	erb :edit_profile
+end
+post '/edit_submit' do
+	@title = 'Your Profile'
+	@my_profile = Profile.find_by(user_id: session[:session_user_id])
+	@my_profile.update(first_name: params[:first_name], last_name: params[:last_name], birthday: params[:birthday], email: params[:email], work: params[:work])
+	redirect 'profile'
 end
 get '/logout' do
 	session.clear
 	erb :logout, :layout => :home_layout
 end
-
 get '/users' do
 	@title = 'Users'
 	@users = User.all
 	erb :users
 end
-
 get '/:user_name' do
 	@title = params[:user_name]
 	@user = User.find_by(user_name: params[:user_name])
 	@profile = Profile.find_by(user_id: @user.id)
+	@posts = Post.where(user_id: @user.id)
 	erb :user
+end
+post '/post' do
+	@title = 'Your Profile'
+	Post.create(user_id: session[:session_user_id], date: Date.today, time: Time.now, message: params[:post])
+	redirect back
 end

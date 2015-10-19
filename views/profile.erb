@@ -1,16 +1,15 @@
-<title><%= @title %></title>
-
 	<img id="profile_placeholder" src="./images/profile_placeholder.jpg">
+	<a id="profile_placeholder" href="/edit">Edit Profile</a>
 	<div class="profile_info">
-		<h1 class="profile_name"><%= @profile.first_name + " " + @profile.last_name %></h1>
+		<h1 class="profile_name"><%= @my_profile.first_name + " " + @my_profile.last_name %></h1>
 		<p class="profile_fact">Female</p>
 		<p class="profile_fact">Philadelphia, PA</p>
-		<p class="profile_fact"><%= @profile.work %></p>
-		<p class="profile_fact"><%= @profile.birthday %></p>
+		<p class="profile_fact"><%= @my_profile.work %></p>
+		<p class="profile_fact"><%= @my_profile.birthday %></p>
 	</div>
 	<div id="new_post">
 		<img id="bubbles" src="./images/chatting_bubbles.png" width="150px">
-		<form id="post_form">
+		<form id="post_form" method="post" action="/post">
 			<label id="post_label" for="post">&nbsp;What's new with you?&nbsp;
 				<br>
 				&nbsp;Join the chatter now!&nbsp;</label>

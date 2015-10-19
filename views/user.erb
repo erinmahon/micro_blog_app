@@ -1,5 +1,60 @@
-<% if @profile.first_name.nil? || @profile.last_name.nil? %>
-	<p>Hello <%= @user.user_name %></p>
-<% else %>
-	<p>Hello <%= @profile.first_name + " " + @profile.last_name %></p>
-<% end %>
+<img id="profile_placeholder" src="./images/profile_placeholder.jpg">
+	<div class="profile_info">
+		<h1 class="profile_name">
+			<% if @profile.first_name.nil? || @profile.last_name.nil? %>
+				<%= @user.user_name %>
+			<% else %>
+				<%= @profile.first_name + " " + @profile.last_name %>
+			<% end %>
+		</h1>
+		<p class="profile_fact">Female</p>
+		<p class="profile_fact">Philadelphia, PA</p>
+		<p class="profile_fact"><%= @profile.work %></p>
+		<p class="profile_fact"><%= @profile.birthday %></p>
+	</div>
+	<div id="new_post">
+		<img id="bubbles" src="./images/chatting_bubbles.png" width="150px">
+		<form id="post_form" method="post" action="/post">
+			<label id="post_label" for="post">&nbsp;What's new with you?&nbsp;
+				<br>
+				&nbsp;Join the chatter now!&nbsp;</label>
+			<br>
+			<br>
+			<textarea name="post" rows="6" cols="46"></textarea>
+			<br>
+			<input class="button" type="submit" value="Post">
+		</form>
+	</div>
+	<div class="clear"></div>
+	<div id="profile_section_titles">
+		<h2 class="profile_title" id="following_title">Following</h2>
+		<h2 class="profile_title" id="recent_posts_title">Recent Chatter</h2>
+	</div>
+	<div class="clear"></div>
+	<div id="following_list">
+		<% followees = Follow.where(follower_id: @user.id) %>
+		<% followees.each do |followee| %>
+			<p><a href="/<%= User.find(followee.user_id).user_name %>"><%= User.find(followee.user_id).user_name %></a></p>
+		<% end %>
+
+	</div>
+	<div id="recent_chatter">
+
+		<% @posts = @posts.reverse 
+			@posts.each do |post| %>
+				<h3>Post</h3>
+				<p><%= post.message %></p>
+				<p><%= post.date %></p>
+				<p><%= post.time %></p>
+
+				<% comments = Comment.where(post_id: post.id)
+			   comments.each do |item| %>
+			  		<h3>Comment</h3>
+			   	<p><%= item.message %></p>
+					<p><%= User.find(item.user_id).user_name %></p>
+					<p><%= item.date %></p>
+					<p><%= item.time %></p>
+				<% end %>
+			<% end %>
+	</div>
+	<div class="clear"></div>

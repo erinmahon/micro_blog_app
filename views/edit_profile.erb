@@ -1,0 +1,19 @@
+<form method="post" action="/edit_submit">
+	<label for="first_name">First Name</label>
+	<input type="text" name="first_name" value=<%= @my_profile.first_name %>>
+	<br>
+	<label for="last_name">Last Name</label>
+	<input type="text" name="last_name" value=<%= @my_profile.last_name %>>
+	<br>
+	<label for="birthday">Birthday</label>
+	<input type="text" name="birthday" value=<%= @my_profile.birthday %>>
+	<br>
+	<label for="email">Email</label>
+	<input type="text" name="email" value=<%= @my_profile.email %>>
+	<br>
+	<label for="work">Work</label>
+	<input type="text" name="work" value=<%= @my_profile.work %>>
+	<br>
+	<input class="button" type="submit" value="Edit">
+	<br>
+</form>
