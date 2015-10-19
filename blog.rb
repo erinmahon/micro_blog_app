@@ -115,6 +115,8 @@ post '/follow' do
 end
 post '/post' do
 	@title = 'Your Profile'
-	Post.create(user_id: session[:session_user_id], date: Date.today, time: Time.now, message: params[:post])
+	if params[:post] != ""
+		Post.create(user_id: session[:session_user_id], date: Date.today, time: Time.now, message: params[:post])
+	end
 	redirect back
 end
