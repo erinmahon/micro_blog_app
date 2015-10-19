@@ -79,7 +79,7 @@ end
 post '/edit_submit' do
 	@title = 'Your Profile'
 	@my_profile = Profile.find_by(user_id: session[:session_user_id])
-	@my_profile.update(first_name: params[:first_name], last_name: params[:last_name], birthday: params[:birthday], email: params[:email], work: params[:work])
+	@my_profile.update(first_name: params[:first_name].capitalize, last_name: params[:last_name].capitalize, birthday: params[:birthday], email: params[:email], work: params[:work].capitalize)
 	redirect 'profile'
 end
 get '/logout' do
